@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The One Dream | Plans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pagetwo.css">
+</head>
+<body>
+  <main class="plans-page">
+    <div class="video-shell" aria-hidden="true">
+      <video class="plans-video" autoplay muted loop playsinline>
+        <source src="plans-background.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="page-overlay" aria-hidden="true"></div>
+    <header class="plans-header">
+      <a class="brand" href="intro.html">THE ONE <span>DREAM</span></a>
+      <p class="kicker">Choose the journey that fits your build</p>
+      <h1>Plans for every stage of your dream home</h1>
+    </header>
+
+    <section class="plans-grid" aria-label="Plans">
+      <article class="plan-card plan-basic">
+        <p class="plan-tag">Basic</p>
+        <h2>Foundation plan</h2>
+        <p class="plan-price"><span class="rupee-symbol">Rs</span> 999</p>
+        <ul class="plan-list">
+          <li><span>1.</span><span>3D home view</span></li>
+          <li><span>2.</span><span>The bridge (connection with engineer)</span></li>
+          <li><span>3.</span><span>Today at the Jobsite</span></li>
+          <li><span>4.</span><span>Stage-by-stage payment updates (PDF)</span></li>
+          <li class="no-item"><span class="no-mark" aria-hidden="true">X</span><span>5. NO work progress, with intimation with AI by email or call, daily.</span></li>
+          <li class="no-item"><span class="no-mark" aria-hidden="true">X</span><span>6. NO help in bank loan.</span></li>
+          <li class="no-item"><span class="no-mark" aria-hidden="true">X</span><span>7. NO weekly report of the amount spent and work done, with AI analysis and a meet with builder expert.</span></li>
+        </ul>
+        <button class="buy-button" type="button" data-plan="Basic">Buy Basic</button>
+      </article>
+
+      <article class="plan-card plan-premium">
+        <p class="plan-tag">Premium</p>
+        <h2>Premium plan</h2>
+        <p class="plan-price"><span class="rupee-symbol">Rs</span> 1499</p>
+        <ul class="plan-list">
+          <li><span>1.</span><span>3D home view.</span></li>
+          <li><span>2.</span><span>The bridge (connection with engineer).</span></li>
+          <li><span>3.</span><span>Today at the Jobsite.</span></li>
+          <li><span>4.</span><span>Stage-by-stage payment updates (PDF).</span></li>
+          <li><span>5.</span><span>Work progress with intimation with AI by email and call, daily.</span></li>
+          <li><span>6.</span><span>Bank loan with one time branch visit (direct service agent).</span></li>
+          <li><span>7.</span><span>Weekly report of the amount spent and work done, with AI analysis and a meet with builder expert.</span></li>
+          <li><span>8.</span><span>Back ups for blueprint includes water pipelines, drainage, and electrical of the home.</span></li>
+        </ul>
+        <button class="buy-button buy-button-premium" type="button" data-plan="Premium">Buy Premium</button>
+      </article>
+    </section>
+    <p class="purchase-message" id="purchase-message" role="status" aria-live="polite"></p>
+    
+    <!-- Left Bottom Go to Home Button -->
+    <a class="home-btn" href="intro.html"><span aria-hidden="true">&#8962;</span> Go to Home</a>
+  </main>
+  <script src="pagetwo.js"></script>
+</body>
+</html>

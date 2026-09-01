@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The One Dream | Current Home Status & Connect with Engineer</title>
+  <meta name="description" content="View your live home construction status and connect directly with your dedicated lead engineer on The One Dream platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CHSpagethree.css">
+</head>
+<body>
+  <!-- Fixed Left Sidebar -->
+  <aside class="status-bar" aria-label="Account status navigation">
+    <div class="status-watermark" aria-hidden="true">
+      <span>C</span>
+      <span>O</span>
+      <span>M</span>
+      <span>E</span>
+      <span>S</span>
+      <span>T</span>
+      <span>R</span>
+      <span>U</span>
+      <span>E</span>
+    </div>
+    <a class="profile-badge" href="#profile">
+      <span class="profile-logo" aria-hidden="true">OD</span>
+      <span><strong>Profile</strong><small>Welcome home</small></span>
+    </a>
+    <nav class="status-nav" aria-label="Your home journey">
+      <a class="status-link" href="intro.html" id="nav-home"><span aria-hidden="true">&#8962;</span> Home</a>
+      <a class="status-link is-active" href="CHSpagethree.html" id="nav-current-status"><span aria-hidden="true">&#9673;</span> Current home status</a>
+      <a class="status-link" href="pagetwo.html" id="nav-home-loan"><span aria-hidden="true">&#8377;</span> Home loan & Plans</a>
+      <a class="status-link" href="#expert" id="nav-construction-expert"><span aria-hidden="true">&#9826;</span> Construction expert</a>
+      <a class="status-link" href="#profile" id="nav-profile"><span aria-hidden="true">&#9787;</span> Your profile</a>
+    </nav>
+    <a class="logout" href="intro.html"><span aria-hidden="true">&#8592;</span> Back to Home</a>
+  </aside>
+
+  <!-- Main Hero & Dashboard Area -->
+  <main class="hero">
+    <div class="video-shell" aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="intro-background.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <header class="nav" aria-label="Main navigation">
+      <a class="brand" href="intro.html" aria-label="The One Dream home">THE ONE <span>DREAM</span></a>
+      <div class="account-actions">
+        <a class="button button-ghost" href="pagetwo.html">View Plans</a>
+        <a class="button button-solid" href="intro.html">Home</a>
+      </div>
+    </header>
+
+    <section class="status-content">
+      <header class="page-heading">
+        <p class="eyebrow">Live Jobsite & Support</p>
+        <h1>Current Home Status</h1>
+        <p class="tagline">Track your site progress in real-time and connect directly with your assigned Lead Construction Engineer.</p>
+      </header>
+
+      <!-- Main Grid: Engineer Contact Card + Progress Card -->
+      <div class="status-grid">
+        
+        <!-- Engineer Connection Section -->
+        <article class="engineer-connect-section" id="engineer-section">
+          <!-- Connection Form (Shown initially when no engineer is connected) -->
+          <div class="connect-portal" id="connect-portal-form">
+            <div class="card-header">
+              <span class="badge badge-engineer">Engineer Portal</span>
+              <span class="status-indicator offline" id="connect-status-badge">● Not Connected</span>
+            </div>
+            
+            <h2 class="portal-title">Connect with Your Engineer</h2>
+            <p class="portal-desc">Enter your assigned Engineer's Code, Name, Phone Number, and Email Address to connect them to your project status.</p>
+
+            <form id="engineer-login-form" class="portal-form">
+              <div class="form-group">
+                <label for="eng-code-input">Engineer Code (ENG Code)</label>
+                <input type="text" id="eng-code-input" placeholder="e.g. ENG-4029" required>
+              </div>
+
+              <div class="form-group">
+                <label for="eng-name-input">Engineer Name</label>
+                <input type="text" id="eng-name-input" placeholder="e.g. Er. Vikramaditya Singh" required>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="eng-phone-input">Engineer Phone Number</label>
+                  <input type="tel" id="eng-phone-input" placeholder="e.g. +91 98765 43210" required>
+                </div>
+                <div class="form-group">
+                  <label for="eng-email-input">Engineer Email</label>
+                  <input type="email" id="eng-email-input" placeholder="e.g. engineer@theonedream.com" required>
+                </div>
+              </div>
+
+              <button type="submit" class="button button-accent connect-submit-btn" id="btn-connect-engineer">
+                Connect Engineer &rarr;
+              </button>
+            </form>
+          </div>
+
+          <!-- Connected Engineer Details (Shown after user clicks Connect) -->
+          <div class="connected-view" id="connected-engineer-card" style="display: none;">
+            <div class="card-header">
+              <span class="badge badge-engineer">Lead Construction Engineer</span>
+              <span class="status-indicator online">● Connected & Available</span>
+            </div>
+
+            <div class="engineer-profile">
+              <div class="engineer-avatar" id="connected-avatar" aria-hidden="true">
+                <span>ENG</span>
+              </div>
+              <div class="engineer-meta">
+                <h2 class="engineer-name" id="display-eng-name">Engineer Name</h2>
+                <p class="engineer-title"><span id="display-eng-code">ENG-0000</span> | Site Lead Engineer</p>
+              </div>
+            </div>
+
+            <div class="contact-details-list">
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">📞</div>
+                <div class="contact-info">
+                  <span class="info-label">Phone Number</span>
+                  <a class="info-value phone-link" href="#" id="engineer-phone">+91 ----- -----</a>
+                </div>
+                <button class="action-icon-btn" type="button" id="copy-phone-btn" title="Copy Phone Number">
+                  📋 Copy
+                </button>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">✉️</div>
+                <div class="contact-info">
+                  <span class="info-label">Email Address</span>
+                  <a class="info-value email-link" href="#" id="engineer-email">engineer@domain.com</a>
+                </div>
+                <button class="action-icon-btn" type="button" id="copy-email-btn" title="Copy Email Address">
+                  📋 Copy
+                </button>
+              </div>
+            </div>
+
+            <!-- Direct Quick Action Buttons -->
+            <div class="engineer-actions">
+              <a class="button button-solid action-btn" href="#" id="btn-call-now">
+                <span aria-hidden="true">📞</span> Call Engineer Now
+              </a>
+              <a class="button button-ghost action-btn" href="#" id="btn-send-email">
+                <span aria-hidden="true">✉️</span> Send Email
+              </a>
+              <button class="button button-ghost action-btn" type="button" id="btn-disconnect-engineer" style="margin-top: 6px; font-size: 0.82rem; color: #ff9999;">
+                ⚙️ Change / Disconnect Engineer
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Live Site Progress Card (Hidden initially, appears after engineer is connected) -->
+        <article class="card progress-card" id="progress-section" style="display: none;">
+          <div class="card-header">
+            <span class="badge badge-status">Site Update</span>
+            <span class="update-time">Updated 2 hours ago</span>
+          </div>
+
+          <div class="site-overview">
+            <h2>Ground Floor Framing & Slab</h2>
+            <p class="site-sub">Project: <strong>Dream Villa - Plot #402</strong></p>
+            
+            <div class="progress-bar-container">
+              <div class="progress-info">
+                <span>Overall Completion</span>
+                <strong id="progress-percent">68%</strong>
+              </div>
+              <div class="progress-track" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-fill" style="width: 68%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="site-timeline">
+            <h3>Recent Milestones</h3>
+            <ul class="timeline-list">
+              <li class="timeline-item done">
+                <span class="timeline-dot">✓</span>
+                <div class="timeline-content">
+                  <strong>Foundation Concrete Pouring</strong>
+                  <small>Completed on Aug 28, 2026</small>
+                </div>
+              </li>
+              <li class="timeline-item active">
+                <span class="timeline-dot">⏳</span>
+                <div class="timeline-content">
+                  <strong>Pillar Curing & Shuttering</strong>
+                  <small id="active-milestone-desc">In Progress — Site inspection today</small>
+                </div>
+              </li>
+              <li class="timeline-item upcoming">
+                <span class="timeline-dot">○</span>
+                <div class="timeline-content">
+                  <strong>Roof Slab Casting</strong>
+                  <small>Scheduled for Sept 08, 2026</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast-msg" role="status" aria-live="polite">Copied to clipboard!</div>
+
+  <script src="CHSpagethree.js"></script>
+</body>
+</html>
