@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The One Dream | Home Loans & Build Plans</title>
+  <meta name="description" content="Calculate your home loan EMI, explore partner bank approvals with 1-time branch visits, and select your build plan with The One Dream.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="HLPpagefour.css">
+</head>
+<body>
+  <!-- Fixed Left Sidebar -->
+  <aside class="status-bar" aria-label="Account status navigation">
+    <div class="status-watermark" aria-hidden="true">
+      <span>C</span>
+      <span>O</span>
+      <span>M</span>
+      <span>E</span>
+      <span>S</span>
+      <span>T</span>
+      <span>R</span>
+      <span>U</span>
+      <span>E</span>
+    </div>
+    <a class="profile-badge" href="#profile">
+      <span class="profile-logo" aria-hidden="true">OD</span>
+      <span><strong>Profile</strong><small>Welcome home</small></span>
+    </a>
+    <nav class="status-nav" aria-label="Your home journey">
+      <a class="status-link" href="intro.html" id="nav-home"><span aria-hidden="true">&#8962;</span> Home</a>
+      <a class="status-link" href="CHSpagethree.html" id="nav-current-status"><span aria-hidden="true">&#9673;</span> Current home status</a>
+      <a class="status-link is-active" href="HLPpagefour.html" id="nav-home-loan"><span aria-hidden="true">&#8377;</span> Home loan & Plans</a>
+      <a class="status-link" href="#expert" id="nav-construction-expert"><span aria-hidden="true">&#9826;</span> Construction expert</a>
+      <a class="status-link" href="#profile" id="nav-profile"><span aria-hidden="true">&#9787;</span> Your profile</a>
+    </nav>
+    <a class="logout" href="intro.html"><span aria-hidden="true">&#8592;</span> Back to Home</a>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="hero">
+    <div class="video-shell" aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="plans-background.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <header class="nav" aria-label="Main navigation">
+      <a class="brand" href="intro.html" aria-label="The One Dream home">THE ONE <span>DREAM</span></a>
+      <div class="account-actions">
+        <a class="button button-ghost" href="CHSpagethree.html">Engineer Status</a>
+        <a class="button button-solid" href="intro.html">Home</a>
+      </div>
+    </header>
+
+    <section class="hlp-content">
+      <header class="page-heading">
+        <p class="eyebrow">Finance & Construction Plans</p>
+        <h1>Home Loans & Build Plans</h1>
+        <p class="tagline">Explore pre-approved home loan options with 1-visit bank processing and select the perfect construction plan for your dream home.</p>
+      </header>
+
+      <!-- Grid 1: Interactive Loan EMI Calculator & Bank Partners -->
+      <div class="hlp-grid">
+        
+        <!-- Loan Calculator Section -->
+        <article class="hlp-card calculator-card">
+          <div class="card-header">
+            <span class="badge badge-loan">Instant EMI Estimator</span>
+            <span class="status-indicator online">● Bank Approval Partner</span>
+          </div>
+
+          <h2 class="section-title">Home Loan EMI Calculator</h2>
+          <p class="section-subtitle">Estimate your monthly installment and loan eligibility instantly.</p>
+
+          <div class="calc-controls">
+            <!-- Loan Amount Slider -->
+            <div class="slider-group">
+              <div class="slider-header">
+                <label for="loan-amount-range">Required Loan Amount</label>
+                <span class="slider-value" id="loan-amount-val">Rs 35,00,000</span>
+              </div>
+              <input type="range" id="loan-amount-range" min="500000" max="20000000" step="100000" value="3500000">
+            </div>
+
+            <!-- Loan Tenure Slider -->
+            <div class="slider-group">
+              <div class="slider-header">
+                <label for="loan-tenure-range">Loan Tenure (Years)</label>
+                <span class="slider-value" id="loan-tenure-val">20 Years</span>
+              </div>
+              <input type="range" id="loan-tenure-range" min="5" max="30" step="1" value="20">
+            </div>
+
+            <!-- Interest Rate Slider -->
+            <div class="slider-group">
+              <div class="slider-header">
+                <label for="loan-rate-range">Interest Rate (% p.a.)</label>
+                <span class="slider-value" id="loan-rate-val">8.5%</span>
+              </div>
+              <input type="range" id="loan-rate-range" min="6.5" max="14" step="0.1" value="8.5">
+            </div>
+          </div>
+
+          <!-- EMI Output Box -->
+          <div class="emi-result-box">
+            <div class="emi-item">
+              <span class="emi-label">Estimated Monthly EMI</span>
+              <strong class="emi-amount" id="calculated-emi">Rs 30,374 / mo</strong>
+            </div>
+            <div class="emi-item">
+              <span class="emi-label">Total Payable Amount</span>
+              <span class="emi-sub" id="calculated-total">Rs 72,89,760</span>
+            </div>
+          </div>
+
+          <!-- Partner Banks -->
+          <div class="bank-partners">
+            <h3>Partner Banks (1-Time Branch Visit)</h3>
+            <div class="bank-tags">
+              <span class="bank-badge">HDFC Bank</span>
+              <span class="bank-badge">State Bank of India</span>
+              <span class="bank-badge">ICICI Bank</span>
+              <span class="bank-badge">Axis Bank</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Construction Plans Card -->
+        <article class="hlp-card plans-overview-card">
+          <div class="card-header">
+            <span class="badge badge-plan">Build Packages</span>
+            <span class="update-time">Clear Upfront Pricing</span>
+          </div>
+
+          <h2 class="section-title">Select Your Construction Plan</h2>
+          <p class="section-subtitle">Transparent packages designed for every stage of your build.</p>
+
+          <div class="mini-plans-grid">
+            <!-- Basic Plan -->
+            <div class="mini-plan-box">
+              <div class="mini-plan-header">
+                <span class="plan-tag">BASIC</span>
+                <h3>Foundation Plan</h3>
+                <div class="plan-price">Rs 999</div>
+              </div>
+              <ul class="mini-feature-list">
+                <li>✓ 3D Home View & Layouts</li>
+                <li>✓ Connection with Lead Engineer</li>
+                <li>✓ Today at the Jobsite feeds</li>
+                <li>✓ Stage Payment PDF updates</li>
+              </ul>
+              <button class="button button-ghost select-plan-btn" type="button" data-plan="Foundation Plan (Rs 999)">Select Basic</button>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="mini-plan-box premium-box">
+              <div class="mini-plan-header">
+                <span class="plan-tag tag-gold">PREMIUM</span>
+                <h3>Premium Plan</h3>
+                <div class="plan-price price-gold">Rs 1499</div>
+              </div>
+              <ul class="mini-feature-list">
+                <li>✓ All Foundation Features</li>
+                <li>✓ AI Daily Call & Email intimation</li>
+                <li>✓ Bank Loan 1-visit agent assistance</li>
+                <li>✓ AI Weekly Budget & Meet with expert</li>
+                <li>✓ Plumbing, Electrical & Drainage blueprints</li>
+              </ul>
+              <button class="button button-accent select-plan-btn" type="button" data-plan="Premium Plan (Rs 1499)">Select Premium</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Loan Application / Expert Callback Form -->
+      <section class="loan-form-section">
+        <article class="hlp-card form-card">
+          <div class="form-header">
+            <h2>Apply for Home Loan Assistance & Plan Activation</h2>
+            <p>Fill out your details to get instant bank pre-approval and consultation with our finance experts.</p>
+          </div>
+
+          <form id="loan-application-form" class="loan-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="applicant-name">Full Name</label>
+                <input type="text" id="applicant-name" placeholder="e.g. Ankit Sharma" required>
+              </div>
+
+              <div class="form-group">
+                <label for="applicant-phone">Phone Number</label>
+                <input type="tel" id="applicant-phone" placeholder="e.g. +91 98765 43210" required>
+              </div>
+
+              <div class="form-group">
+                <label for="applicant-email">Email Address</label>
+                <input type="email" id="applicant-email" placeholder="e.g. customer@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="selected-plan-input">Chosen Build Plan</label>
+                <input type="text" id="selected-plan-input" value="Premium Plan (Rs 1499)" readonly>
+              </div>
+            </div>
+
+            <button type="submit" class="button button-solid submit-btn" id="btn-submit-loan">
+              Submit Loan & Plan Request &rarr;
+            </button>
+          </form>
+
+          <div class="form-status" id="loan-form-status" role="status" aria-live="polite"></div>
+        </article>
+      </section>
+
+    </section>
+  </main>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast-msg" role="status" aria-live="polite">Action updated!</div>
+
+  <script src="HLPpagefour.js"></script>
+</body>
+</html>
