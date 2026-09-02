@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The One Dream | Construction Expert & Analysis Reports</title>
+  <meta name="description" content="Connect with certified lead structural engineers and AI site co-pilots. View comprehensive weekly and monthly construction analysis reports for your dream home.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cex.css">
+</head>
+<body>
+  <!-- Fixed Left Sidebar -->
+  <aside class="status-bar" aria-label="Account status navigation">
+    <div class="status-watermark" aria-hidden="true">
+      <span>C</span>
+      <span>O</span>
+      <span>M</span>
+      <span>E</span>
+      <span>S</span>
+      <span>T</span>
+      <span>R</span>
+      <span>U</span>
+      <span>E</span>
+    </div>
+    <a class="profile-badge" href="#profile">
+      <span class="profile-logo" aria-hidden="true">OD</span>
+      <span><strong>Profile</strong><small>Welcome home</small></span>
+    </a>
+    <nav class="status-nav" aria-label="Your home journey">
+      <a class="status-link" href="intro.html" id="nav-home"><span aria-hidden="true">&#8962;</span> Home</a>
+      <a class="status-link" href="CHSpagethree.html" id="nav-current-status"><span aria-hidden="true">&#9673;</span> Current home status</a>
+      <a class="status-link" href="HLPpagefour.html" id="nav-home-loan"><span aria-hidden="true">&#8377;</span> Home loan & Plans</a>
+      <a class="status-link is-active" href="cex.html" id="nav-construction-expert"><span aria-hidden="true">&#9826;</span> Construction expert</a>
+      <a class="status-link" href="#profile" id="nav-profile"><span aria-hidden="true">&#9787;</span> Your profile</a>
+    </nav>
+    <a class="logout" href="intro.html"><span aria-hidden="true">&#8592;</span> Back to Home</a>
+  </aside>
+
+  <!-- Main Hero & Dashboard Area -->
+  <main class="hero">
+    <div class="video-shell" aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="intro-background.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- Navigation Header -->
+    <header class="nav" aria-label="Main navigation">
+      <a class="brand" href="intro.html" aria-label="The One Dream home">THE ONE <span>DREAM</span></a>
+      <div class="account-actions">
+        <div class="engineer-status-badge">
+          <span class="status-dot online"></span>
+          <span class="badge-text"><strong>Er. Rajesh Sharma</strong> (Lead Engineer Online)</span>
+        </div>
+        <a class="button button-ghost" href="#reports-section">View Reports</a>
+        <a class="button button-solid" href="intro.html">Home</a>
+      </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="expert-banner">
+      <div class="banner-content">
+        <p class="eyebrow">Expert Structural Advisory & Intelligence</p>
+        <h1>Construction Expert Suite</h1>
+        <p class="banner-tagline">
+          Direct 24/7 bridge to certified structural engineers, AI site co-pilot analysis, and detailed weekly/monthly audit reports.
+        </p>
+      </div>
+      <div class="banner-quick-stats">
+        <div class="stat-pill">
+          <span class="stat-num">14+ Yrs</span>
+          <span class="stat-lbl">Engineer Experience</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">IS 456</span>
+          <span class="stat-lbl">Safety Standard Verified</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">Transparent Audits</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Layout Grid -->
+    <div class="expert-dashboard-grid">
+
+      <!-- SECTION 1: AI & Engineer Live Chat Box -->
+      <section class="chat-card-section" id="ai-chat-section">
+        <div class="card-header">
+          <div class="engineer-profile-bar">
+            <div class="avatar-wrapper">
+              <div class="avatar-initials">RS</div>
+              <span class="pulse-beacon" title="Live on jobsite"></span>
+            </div>
+            <div class="engineer-info">
+              <div class="name-row">
+                <h3>Er. Rajesh Sharma</h3>
+                <span class="verified-chip">✓ Verified Lead Structural Eng.</span>
+                <span class="ai-copilot-tag">⚡ Site AI 2.0 Co-Pilot</span>
+              </div>
+              <p class="engineer-meta">M.Tech Structural Engineering (IIT Bombay) • Lead Inspector, Jobsite #104</p>
+            </div>
+          </div>
+          <div class="header-tools">
+            <button type="button" class="tool-btn" id="call-engineer-btn" title="Request Video Call with Engineer">
+              <span>📞</span> Call Engineer
+            </button>
+            <button type="button" class="tool-btn" id="request-inspection-btn" title="Schedule On-site Inspection">
+              <span>📋</span> Site Inspection
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat History Container -->
+        <div class="chat-messages-container" id="chat-messages" role="log" aria-live="polite">
+          <!-- System Welcome Message -->
+          <div class="chat-message message-system">
+            <div class="system-badge">System Notice</div>
+            <p>Welcome to <strong>The One Dream Engineer Bridge</strong>. Er. Rajesh Sharma and Site AI 2.0 are monitoring your project. Ask any question about curing, material quality, blueprints, or costs.</p>
+          </div>
+
+          <!-- Engineer Message -->
+          <div class="chat-message message-engineer">
+            <div class="msg-avatar">RS</div>
+            <div class="msg-body">
+              <div class="msg-sender">
+                <strong>Er. Rajesh Sharma</strong>
+                <span class="msg-time">09:15 AM</span>
+              </div>
+              <div class="msg-content">
+                <p>Good morning! I performed a morning site inspection on your 1st floor RCC slab. The 7-day cube testing for <strong>M25 Concrete Grade</strong> returned <strong>19.4 N/mm²</strong>, exceeding the 16.75 N/mm² minimum requirement. Slab curing is currently on Day 9 of 14.</p>
+                <div class="msg-attachment-card">
+                  <div class="att-icon">📷</div>
+                  <div class="att-details">
+                    <span class="att-title">Slab_Curing_Inspection_Aug31.jpg</span>
+                    <span class="att-sub">Jobsite High-Res Inspection Photo • 3.2 MB</span>
+                  </div>
+                  <button type="button" class="att-view-btn" onclick="alert('Viewing high-res jobsite photo: Slab curing wet hessian bags in place.')">View</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Message -->
+          <div class="chat-message message-user">
+            <div class="msg-body">
+              <div class="msg-sender">
+                <strong>You</strong>
+                <span class="msg-time">09:22 AM</span>
+              </div>
+              <div class="msg-content">
+                <p>Thanks Rajesh sir! Is the rain forecast for Thursday going to impact our brickwork schedule or waterproofing work?</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Assistant Message -->
+          <div class="chat-message message-ai">
+            <div class="msg-avatar ai-avatar">AI</div>
+            <div class="msg-body">
+              <div class="msg-sender">
+                <strong>Site AI 2.0 Co-Pilot</strong>
+                <span class="msg-time">09:23 AM</span>
+                <span class="ai-badge">Instant AI Analysis</span>
+              </div>
+              <div class="msg-content">
+                <p>Hello! I analyzed local weather forecasts and your project schedule:</p>
+                <ul>
+                  <li><strong>Rain Forecast:</strong> Light to moderate showers expected Thursday afternoon (~12mm).</li>
+                  <li><strong>Impact on Brickwork:</strong> Brick masonry can continue indoors on Ground Floor partitions without issue.</li>
+                  <li><strong>Waterproofing Recommendation:</strong> Delay exterior terrace primer coating by 24 hours until Friday morning after surfaces dry completely.</li>
+                </ul>
+                <p class="ai-footnote">💡 <em>Er. Rajesh Sharma has reviewed and confirmed this recommendation.</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Prompt Chips -->
+        <div class="quick-prompts-wrapper">
+          <span class="prompts-label">Quick Suggestions:</span>
+          <div class="prompts-scroll" id="quick-prompts">
+            <button type="button" class="prompt-chip" data-prompt="Analyze concrete slump test & strength">🧪 Slump & Concrete Test</button>
+            <button type="button" class="prompt-chip" data-prompt="What is the curing status of the 1st floor slab?">🏗️ Curing Schedule</button>
+            <button type="button" class="prompt-chip" data-prompt="Show me the weekly budget vs actual expenditure breakdown">💰 Budget Breakdown</button>
+            <button type="button" class="prompt-chip" data-prompt="Is Tata Tiscon Fe550 steel used according to structural drawings?">📐 Rebar & Steel Audit</button>
+            <button type="button" class="prompt-chip" data-prompt="Check upcoming weather risks for plastering work">🌧️ Monsoon Weather Alert</button>
+          </div>
+        </div>
+
+        <!-- Chat Input Form -->
+        <form class="chat-input-form" id="chat-form">
+          <div class="attachment-preview" id="attachment-preview" style="display: none;">
+            <span class="preview-name" id="preview-filename">image.jpg</span>
+            <button type="button" class="remove-att-btn" id="remove-att-btn">&times;</button>
+          </div>
+          <div class="input-row">
+            <input type="file" id="chat-file-input" accept="image/*,.pdf" style="display: none;">
+            <button type="button" class="action-icon-btn" id="attach-btn" title="Attach jobsite photo or blueprint">📎</button>
+            <button type="button" class="action-icon-btn" id="mic-btn" title="Voice Dictation">🎙️</button>
+            <input type="text" id="chat-input-text" class="chat-text-input" placeholder="Ask your Engineer or Site AI expert (e.g., concrete strength, steel grade, budget)..." required autocomplete="off">
+            <button type="submit" class="send-message-btn" id="send-btn">
+              <span>Send</span> <span aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- SECTION 2: Weekly & Monthly Analysis Reports -->
+      <section class="reports-card-section" id="reports-section">
+        <!-- Reports Header & Tab Navigation -->
+        <div class="reports-header-bar">
+          <div class="reports-title-group">
+            <p class="eyebrow">Comprehensive Site Intelligence</p>
+            <h2>Construction Analysis Reports</h2>
+          </div>
+          <div class="reports-action-group">
+            <div class="report-tab-switch" role="tablist" aria-label="Report period view">
+              <button type="button" class="tab-btn active" id="tab-weekly" role="tab" aria-selected="true" data-period="weekly">
+                📅 Weekly Report
+              </button>
+              <button type="button" class="tab-btn" id="tab-monthly" role="tab" aria-selected="false" data-period="monthly">
+                📊 Monthly Report
+              </button>
+              <button type="button" class="tab-btn" id="tab-custom" role="tab" aria-selected="false" data-period="custom">
+                🔍 Structural Audit
+              </button>
+            </div>
+            <div class="export-buttons">
+              <button type="button" class="export-btn export-pdf" id="download-pdf-btn">
+                <span>📥</span> PDF Report
+              </button>
+              <button type="button" class="export-btn export-print" id="print-report-btn">
+                <span>🖨️</span> Print
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Period Banner Info -->
+        <div class="report-period-banner" id="report-period-banner">
+          <div class="period-info">
+            <span class="period-tag" id="period-tag">WEEK 12 REPORT</span>
+            <span class="period-date" id="period-date">Aug 25, 2026 – Aug 31, 2026</span>
+          </div>
+          <div class="period-status">
+            <span class="verified-badge">✓ Engineer Verified & Stamp Approved</span>
+          </div>
+        </div>
+
+        <!-- Key Metrics Cards Row -->
+        <div class="metrics-grid" id="metrics-grid">
+          <!-- Metric 1: Overall Progress -->
+          <div class="metric-card">
+            <div class="metric-head">
+              <span class="metric-icon">📈</span>
+              <span class="metric-title">Overall Schedule Progress</span>
+            </div>
+            <div class="metric-value-row">
+              <span class="metric-big" id="val-progress">42.5%</span>
+              <span class="metric-badge positive" id="badge-progress">+4.2% ahead of target</span>
+            </div>
+            <div class="progress-bar-shell">
+              <div class="progress-bar-fill" id="fill-progress" style="width: 42.5%;"></div>
+            </div>
+            <p class="metric-sub" id="sub-progress">Target for Week 12: 38.3% | Ahead by 3 Days</p>
+          </div>
+
+          <!-- Metric 2: Quality & Compliance -->
+          <div class="metric-card">
+            <div class="metric-head">
+              <span class="metric-icon">🛡️</span>
+              <span class="metric-title">Quality & Structural Safety</span>
+            </div>
+            <div class="metric-value-row">
+              <span class="metric-big" id="val-quality">98.8%</span>
+              <span class="metric-badge positive" id="badge-quality">Grade A+ (IS 456)</span>
+            </div>
+            <div class="progress-bar-shell">
+              <div class="progress-bar-fill gold" id="fill-quality" style="width: 98.8%;"></div>
+            </div>
+            <p class="metric-sub" id="sub-quality">14 Checkpoints Verified • Zero Safety Incidents</p>
+          </div>
+
+          <!-- Metric 3: Budget Spent vs Allocated -->
+          <div class="metric-card">
+            <div class="metric-head">
+              <span class="metric-icon">💳</span>
+              <span class="metric-title">Stage Budget Utilization</span>
+            </div>
+            <div class="metric-value-row">
+              <span class="metric-big" id="val-budget">₹ 18.45 L</span>
+              <span class="metric-badge neutral" id="badge-budget">Allocated: ₹ 22.00 L</span>
+            </div>
+            <div class="progress-bar-shell">
+              <div class="progress-bar-fill green" id="fill-budget" style="width: 83.8%;"></div>
+            </div>
+            <p class="metric-sub" id="sub-budget">83.8% of Stage 2 budget spent | Savings: ₹ 3.55 L</p>
+          </div>
+
+          <!-- Metric 4: Material & Labor Efficiency -->
+          <div class="metric-card">
+            <div class="metric-head">
+              <span class="metric-icon">👷</span>
+              <span class="metric-title">Site Workforce & Operations</span>
+            </div>
+            <div class="metric-value-row">
+              <span class="metric-big" id="val-labor">18 Workers</span>
+              <span class="metric-badge positive" id="badge-labor">100% Attendance</span>
+            </div>
+            <div class="progress-bar-shell">
+              <div class="progress-bar-fill" id="fill-labor" style="width: 100%;"></div>
+            </div>
+            <p class="metric-sub" id="sub-labor">12 Masons, 6 Helpers, 2 Supervisors, 1 QC Eng.</p>
+          </div>
+        </div>
+
+        <!-- Detailed Breakdown Grid -->
+        <div class="analysis-details-grid">
+
+          <!-- Left Column: Work Milestone Breakdown -->
+          <div class="detail-box">
+            <div class="box-header">
+              <h3><span>🏗️</span> Task Completion Breakdown</h3>
+              <span class="box-tag" id="task-box-tag">Current Stage: Structure & Masonry</span>
+            </div>
+            <div class="milestones-list" id="milestones-list">
+              <!-- Rendered via JS based on selected report period -->
+            </div>
+          </div>
+
+          <!-- Right Column: Material Inventory & Cost Variance -->
+          <div class="detail-box">
+            <div class="box-header">
+              <h3><span>📦</span> Material Consumption & Inventory</h3>
+              <span class="box-tag">Quality Tested</span>
+            </div>
+            <div class="materials-list" id="materials-list">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- AI Insights & Risk Assessment Callout Card -->
+        <div class="ai-insight-card" id="ai-insight-card">
+          <div class="insight-header">
+            <span class="insight-icon">⚡</span>
+            <div>
+              <h3 id="insight-title">Lead Structural Engineer & AI Co-Pilot Findings</h3>
+              <p class="insight-meta" id="insight-meta">Automated analysis generated on Aug 31, 2026</p>
+            </div>
+          </div>
+          <div class="insight-body" id="insight-body">
+            <div class="insight-item insight-positive">
+              <span class="bullet-icon">✓</span>
+              <div>
+                <strong>Compressive Strength Exceeded:</strong>
+                <p>7-Day M25 concrete cube test reached 19.4 N/mm² (Target: 16.75 N/mm²). Concrete mixing ratio and compaction were executed to perfection.</p>
+              </div>
+            </div>
+            <div class="insight-item insight-warning">
+              <span class="bullet-icon">⚠️</span>
+              <div>
+                <strong>Curing & Weather Vigilance:</strong>
+                <p>Ensure continuous ponding/gunny bag moistening for 1st Floor slab until Day 14 (Sept 5). Prepare rain covers for mortar mixing area prior to Thursday rain forecast.</p>
+              </div>
+            </div>
+            <div class="insight-item insight-info">
+              <span class="bullet-icon">💡</span>
+              <div>
+                <strong>Procurement Recommendation:</strong>
+                <p>Steel TMT stock is at 0.7 Tons remaining. Procure 4.5 Tons of Tata Tiscon Fe550D before scheduled distributor price hike next Monday.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- PDF Print / Audit Preview Modal -->
+  <div class="modal-overlay" id="pdf-modal" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>📄 Executive Construction Audit Report</h2>
+        <button type="button" class="modal-close-btn" id="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-report-content">
+        <div class="print-header">
+          <div class="print-brand">THE ONE DREAM | Structural Engineering Audit</div>
+          <div class="print-date">Generated: Aug 31, 2026</div>
+        </div>
+        <hr>
+        <h3>Project: Villa Grande - Site #104</h3>
+        <p><strong>Lead Engineer:</strong> Er. Rajesh Sharma (M.Tech IIT B, Reg. #SE-88492)</p>
+        <p><strong>Audit Period:</strong> Aug 25, 2026 – Aug 31, 2026 (Week 12 Report)</p>
+        <div class="print-summary-box">
+          <p><strong>Overall Completion:</strong> 42.5% (Target: 38.3%) — <strong>AHEAD OF SCHEDULE</strong></p>
+          <p><strong>Structural Safety Score:</strong> 98.8% / 100 (Compliant with IS 456:2000 & NBC 2016)</p>
+          <p><strong>Stage Budget:</strong> Spent ₹ 18.45 L out of ₹ 22.00 L (₹ 3.55 L remaining balance)</p>
+        </div>
+        <h4>Key Structural Inspections Completed:</h4>
+        <ul>
+          <li>1st Floor Slab M25 Concrete Cube Test (19.4 N/mm² achieved)</li>
+          <li>Column C1 to C12 Rebar Spacing & Cover Block Audit (Passed)</li>
+          <li>Plumbing Drop Shaft Waterproofing Membrane Test (Passed)</li>
+        </ul>
+        <p class="print-sign"><em>Signed & Verified electronically by Er. Rajesh Sharma & Site AI 2.0</em></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button button-ghost" onclick="document.getElementById('pdf-modal').style.display='none'">Close</button>
+        <button type="button" class="button button-solid" onclick="window.print()">🖨️ Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="cex.js"></script>
+</body>
+</html>
