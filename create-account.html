@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | The One Dream Construction Platform</title>
+  <meta name="description" content="Create your free account on The One Dream to start building your dream home with Sudar AI reports and real-time site analytics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="create-account.css">
+</head>
+<body>
+  <div class="background-decor" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <main class="signup-wrapper">
+    <div class="signup-container">
+      <!-- Left Showcase Panel -->
+      <section class="brand-panel">
+        <div class="brand-header">
+          <a href="intro.html" class="brand-logo">THE ONE <span>DREAM</span></a>
+        </div>
+        <div class="brand-content">
+          <span class="eyebrow-badge">Get Started Free</span>
+          <h1>Build Your Dream Home With Confidence</h1>
+          <p>Join thousands of homeowners and construction leaders using Sudar AI intelligence, cost estimators, and live progress dashboards.</p>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-num">99.4%</span>
+              <span class="stat-label">Report Accuracy</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">12k+</span>
+              <span class="stat-label">Homes Estimated</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">24/7</span>
+              <span class="stat-label">Sudar AI Support</span>
+            </div>
+          </div>
+        </div>
+        <div class="brand-footer">
+          <p>&copy; 2026 The One Dream Construction Technologies Inc.</p>
+        </div>
+      </section>
+
+      <!-- Right Form Card -->
+      <section class="form-panel">
+        <div class="form-header">
+          <h2>Create Your Account</h2>
+          <p>Fill in your details to start your home building journey</p>
+        </div>
+
+        <div id="alert-banner" class="alert-banner hidden" role="alert"></div>
+
+        <form id="signup-form" class="auth-form" novalidate>
+
+          <!-- Role Selector -->
+          <div class="form-group">
+            <label>Profile Role</label>
+            <div class="role-selector">
+              <label class="role-card active">
+                <input type="radio" name="role" value="Homeowner" checked>
+                <span class="role-icon">&#127968;</span>
+                <span class="role-title">Homeowner</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <div class="input-wrapper">
+                <span class="input-icon">&#128100;</span>
+                <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+              </div>
+              <span class="error-msg" id="fullname-error">Please enter your full name</span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <div class="input-wrapper">
+                <span class="input-icon">&#128241;</span>
+                <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+              </div>
+              <span class="error-msg" id="phone-error">Please enter a valid phone number</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-wrapper">
+              <span class="input-icon">&#9993;</span>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+            <span class="error-msg" id="email-error">Please enter a valid email address</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-wrapper">
+                <span class="input-icon">&#128274;</span>
+                <input type="password" id="password" name="password" placeholder="••••••••••••" required>
+                <button type="button" class="toggle-password" id="toggle-password" aria-label="Toggle password">
+                  <span id="eye-icon">&#128065;</span>
+                </button>
+              </div>
+              <!-- Password Strength Bar -->
+              <div class="strength-bar-container">
+                <div class="strength-bar" id="strength-bar"></div>
+              </div>
+              <span class="strength-text" id="strength-text">Password strength: Too weak</span>
+              <span class="error-msg" id="password-error">Minimum 8 characters with numbers & symbols</span>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+              <div class="input-wrapper">
+                <span class="input-icon">&#128274;</span>
+                <input type="password" id="confirm-password" name="confirmPassword" placeholder="••••••••••••" required>
+              </div>
+              <span class="error-msg" id="confirm-password-error">Passwords do not match</span>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="checkbox-container">
+              <input type="checkbox" id="terms" name="terms" required>
+              <span class="checkmark"></span>
+              <span>I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></span>
+            </label>
+            <span class="error-msg" id="terms-error">You must accept the terms</span>
+          </div>
+
+          <button type="submit" id="submit-btn" class="btn btn-primary btn-block">
+            <span class="btn-text">Create Free Account</span>
+            <span class="spinner hidden" id="btn-spinner"></span>
+          </button>
+        </form>
+
+        <p class="switch-auth">
+          Already have an account? <a href="login.html" class="highlight-link">Sign In</a>
+        </p>
+
+        <div class="back-home-link">
+          <a href="intro.html">&larr; Return to Home Page</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="create-account.js"></script>
+</body>
+</html>

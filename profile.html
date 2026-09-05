@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Profile | The One Dream Construction Platform</title>
+  <meta name="description" content="Manage your The One Dream user profile, active home construction project status, saved cost estimator quotes, and Sudar AI reports.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <!-- Fixed Left Sidebar (Standard Platform Navigation) -->
+  <aside class="status-bar" aria-label="Account status navigation">
+    <div class="status-watermark" aria-hidden="true">
+      <span>C</span>
+      <span>O</span>
+      <span>M</span>
+      <span>E</span>
+      <span>S</span>
+      <span>T</span>
+      <span>R</span>
+      <span>U</span>
+      <span>E</span>
+    </div>
+    <a class="profile-badge" href="profile.html">
+      <span class="profile-logo" id="sidebar-avatar-initials">OD</span>
+      <span><strong id="sidebar-user-name">Your Profile</strong><small id="sidebar-user-role">Welcome home</small></span>
+    </a>
+    <nav class="status-nav" aria-label="Your home journey">
+      <a class="status-link" href="intro.html"><span aria-hidden="true">&#8962;</span> Home</a>
+      <a class="status-link" href="CHSpagethree.html"><span aria-hidden="true">&#9673;</span> Current home status</a>
+      <a class="status-link" href="HLPpagefour.html"><span aria-hidden="true">&#8377;</span> Home loan & Plans</a>
+      <a class="status-link" href="cex.html"><span aria-hidden="true">&#9826;</span> Construction expert</a>
+      <a class="status-link" href="sudar-ai.html"><span aria-hidden="true">&#9889;</span> Sudar AI & Estimator</a>
+      <a class="status-link" href="payments.html"><span aria-hidden="true">&#128179;</span> Payments</a>
+      <a class="status-link is-active" href="profile.html"><span aria-hidden="true">&#9787;</span> Your profile</a>
+    </nav>
+    <button class="logout" id="logout-btn" type="button"><span aria-hidden="true">&#8592;</span> Logout</button>
+  </aside>
+
+  <!-- Main Profile Content Area -->
+  <main class="profile-main">
+    <div class="profile-container">
+
+      <!-- Profile Header Banner Card -->
+      <section class="profile-header-card">
+        <div class="header-decor"></div>
+        <div class="header-body">
+          <div class="avatar-section">
+            <div class="avatar-circle" id="profile-avatar-circle">
+              <span id="avatar-initials">OD</span>
+            </div>
+            <button class="avatar-edit-btn" title="Change profile picture" type="button">&#128247;</button>
+          </div>
+          <div class="user-meta">
+            <div class="name-row">
+              <h1 id="user-display-name">Alex Morgan</h1>
+              <span class="role-badge" id="user-display-role">Verified Homeowner</span>
+            </div>
+            <p class="user-subtext" id="user-display-email">alex.morgan@onedream.home</p>
+            <div class="project-pill-badge">
+              <span class="pulse-dot"></span> Active Project: <strong id="user-project-name">The Emerald Villa & Residence</strong>
+            </div>
+          </div>
+          <div class="header-actions">
+            <a href="sudar-ai.html" class="btn btn-glow">
+              <span>&#9889; Launch Sudar AI</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Metrics Grid -->
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon">&#127967;</div>
+          <div class="metric-data">
+            <span class="metric-value">Phase 3</span>
+            <span class="metric-label">Structural Framing</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">&#128202;</div>
+          <div class="metric-data">
+            <span class="metric-value" id="estimates-count">3 Quotes</span>
+            <span class="metric-label">Saved Estimator Results</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">&#128196;</div>
+          <div class="metric-data">
+            <span class="metric-value" id="reports-count">14 Reports</span>
+            <span class="metric-label">Sudar AI Reports Generated</span>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">&#128737;</div>
+          <div class="metric-data">
+            <span class="metric-value">Er. Rajesh V.</span>
+            <span class="metric-label">Assigned Lead Engineer</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab Navigation -->
+      <section class="tabs-wrapper">
+        <div class="tabs-header">
+          <button class="tab-btn active" data-tab="tab-account">&#128100; Account Details</button>
+          <button class="tab-btn" data-tab="tab-project">&#127968; Construction Site</button>
+          <button class="tab-btn" data-tab="tab-estimates">&#128178; Saved Cost Estimates</button>
+          <button class="tab-btn" data-tab="tab-reports">&#9889; Sudar AI Reports</button>
+        </div>
+
+        <div class="tabs-body">
+
+          <!-- TAB 1: Account Details -->
+          <div class="tab-pane active" id="tab-account">
+            <div class="card-box">
+              <div class="card-box-header">
+                <h3>Personal Profile Information</h3>
+                <p>Update your account details and contact preferences</p>
+              </div>
+
+              <div id="profile-alert" class="alert-banner hidden"></div>
+
+              <form id="edit-profile-form" class="profile-form">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="edit-fullname">Full Name</label>
+                    <input type="text" id="edit-fullname" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="edit-email">Email Address</label>
+                    <input type="email" id="edit-email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="edit-phone">Phone Number</label>
+                    <input type="tel" id="edit-phone" placeholder="+91 98765 43210">
+                  </div>
+                  <div class="form-group">
+                    <label for="edit-role">User Role / Occupation</label>
+                    <select id="edit-role">
+                      <option value="Homeowner" selected>Homeowner / Property Owner</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="edit-project">Primary Project Title</label>
+                  <input type="text" id="edit-project" placeholder="e.g. The Emerald Villa">
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary" id="save-profile-btn">Save Profile Changes</button>
+                  <button type="reset" class="btn btn-secondary">Reset Form</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- TAB 2: Construction Site Info -->
+          <div class="tab-pane" id="tab-project">
+            <div class="card-box">
+              <div class="card-box-header">
+                <h3>Active Construction Project Overview</h3>
+                <p>Site specifications and progress parameters tracked by Sudar AI</p>
+              </div>
+
+              <div class="site-overview-grid">
+                <div class="site-detail-card">
+                  <span class="detail-label">Project Name</span>
+                  <span class="detail-val" id="site-name-val">The Emerald Villa & Residence</span>
+                </div>
+                <div class="site-detail-card">
+                  <span class="detail-label">Configuration</span>
+                  <span class="detail-val">3 BHK Modern Duplex</span>
+                </div>
+                <div class="site-detail-card">
+                  <span class="detail-label">Built-up Construction Area</span>
+                  <span class="detail-val">2,450 sq ft</span>
+                </div>
+                <div class="site-detail-card">
+                  <span class="detail-label">Location / Site Address</span>
+                  <span class="detail-val">Plot 42, Green Valley Enclave, Metro Zone</span>
+                </div>
+                <div class="site-detail-card">
+                  <span class="detail-label">Quality Standard</span>
+                  <span class="detail-val">Premium Luxury Tier</span>
+                </div>
+                <div class="site-detail-card">
+                  <span class="detail-label">Current Completion Status</span>
+                  <span class="detail-val highlight-green">48% Completed</span>
+                </div>
+              </div>
+
+              <div class="progress-bar-container">
+                <div class="progress-info">
+                  <span>Overall Construction Progress</span>
+                  <strong>48% Complete</strong>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 48%;"></div>
+                </div>
+              </div>
+
+              <div class="site-cta-row">
+                <a href="sudar-ai.html" class="btn btn-primary">&rarr; Generate New Sudar AI Site Report</a>
+                <a href="CHSpagethree.html" class="btn btn-secondary">&rarr; View Live Engineer Camera Stream</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: Saved Cost Estimates -->
+          <div class="tab-pane" id="tab-estimates">
+            <div class="card-box">
+              <div class="card-box-header">
+                <h3>Your Saved Construction Cost Estimates</h3>
+                <p>Calculated estimates stored from our interactive Cost Estimator</p>
+              </div>
+
+              <div class="estimates-list" id="saved-estimates-list">
+                <!-- Estimate Card 1 -->
+                <div class="estimate-item-card">
+                  <div class="estimate-item-header">
+                    <div>
+                      <span class="estimate-tag">3 BHK Duplex</span>
+                      <h4>The Emerald Villa (2,450 sq ft)</h4>
+                      <small>Saved on Sep 2, 2026 • Premium Quality Tier</small>
+                    </div>
+                    <div class="estimate-price-badge">
+                      <span>₹47,53,000</span>
+                      <small>₹1,940 / sq ft</small>
+                    </div>
+                  </div>
+                  <div class="estimate-breakdown-mini">
+                    <span>Civil: ₹18.0L</span>
+                    <span>Finishing: ₹10.4L</span>
+                    <span>Plumbing/Elec: ₹7.1L</span>
+                    <span>Interior: ₹5.7L</span>
+                  </div>
+                  <div class="estimate-actions">
+                    <a href="sudar-ai.html" class="btn-sm btn-outline">Analyze with Sudar AI</a>
+                    <button class="btn-sm btn-text-only" onclick="alert('Estimate specs printed!')">Export PDF</button>
+                  </div>
+                </div>
+
+                <!-- Estimate Card 2 -->
+                <div class="estimate-item-card">
+                  <div class="estimate-item-header">
+                    <div>
+                      <span class="estimate-tag">2 BHK Cottage</span>
+                      <h4>Suburban Guest Residence (1,200 sq ft)</h4>
+                      <small>Saved on Aug 18, 2026 • Standard Quality Tier</small>
+                    </div>
+                    <div class="estimate-price-badge">
+                      <span>₹19,80,000</span>
+                      <small>₹1,650 / sq ft</small>
+                    </div>
+                  </div>
+                  <div class="estimate-breakdown-mini">
+                    <span>Civil: ₹7.9L</span>
+                    <span>Finishing: ₹4.3L</span>
+                    <span>Plumbing/Elec: ₹3.0L</span>
+                    <span>Interior: ₹2.4L</span>
+                  </div>
+                  <div class="estimate-actions">
+                    <a href="sudar-ai.html" class="btn-sm btn-outline">Analyze with Sudar AI</a>
+                    <button class="btn-sm btn-text-only" onclick="alert('Estimate specs printed!')">Export PDF</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: Sudar AI Reports History -->
+          <div class="tab-pane" id="tab-reports">
+            <div class="card-box">
+              <div class="card-box-header">
+                <h3>Sudar AI Report Logs</h3>
+                <p>Daily, weekly, and monthly AI-generated site process audits</p>
+              </div>
+
+              <div class="reports-table-wrapper">
+                <table class="reports-table">
+                  <thead>
+                    <tr>
+                      <th>Report Type</th>
+                      <th>Date</th>
+                      <th>Site Stage</th>
+                      <th>Status / Safety Score</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="report-badge daily">Daily Log</span></td>
+                      <td>Sep 05, 2026</td>
+                      <td>Slab Casting & Beam Placement</td>
+                      <td><span class="status-pill green">98% Compliant</span></td>
+                      <td><a href="sudar-ai.html" class="table-link">View in AI Hub</a></td>
+                    </tr>
+                    <tr>
+                      <td><span class="report-badge weekly">Weekly Summary</span></td>
+                      <td>Sep 01, 2026</td>
+                      <td>Ground Floor Masonry</td>
+                      <td><span class="status-pill green">On Schedule</span></td>
+                      <td><a href="sudar-ai.html" class="table-link">View in AI Hub</a></td>
+                    </tr>
+                    <tr>
+                      <td><span class="report-badge monthly">Monthly Audit</span></td>
+                      <td>Aug 31, 2026</td>
+                      <td>Foundation & Soil Stabilization</td>
+                      <td><span class="status-pill gold">Audited</span></td>
+                      <td><a href="sudar-ai.html" class="table-link">View in AI Hub</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="profile.js"></script>
+</body>
+</html>

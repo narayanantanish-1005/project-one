@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction Payments & Razorpay Gateway | The One Dream</title>
+  <meta name="description" content="Manage construction milestone payments, track installment history, and complete secure payments via Razorpay integration on The One Dream platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="payments.css">
+  <!-- Razorpay Checkout SDK -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <!-- Fixed Left Sidebar (Standard Platform Navigation) -->
+  <aside class="status-bar" aria-label="Account status navigation">
+    <div class="status-watermark" aria-hidden="true">
+      <span>C</span>
+      <span>O</span>
+      <span>M</span>
+      <span>E</span>
+      <span>S</span>
+      <span>T</span>
+      <span>R</span>
+      <span>U</span>
+      <span>E</span>
+    </div>
+    <a class="profile-badge" href="profile.html">
+      <span class="profile-logo" id="sidebar-avatar-initials">OD</span>
+      <span><strong id="sidebar-user-name">Your Profile</strong><small id="sidebar-user-role">Payment Verified</small></span>
+    </a>
+    <nav class="status-nav" aria-label="Your home journey">
+      <a class="status-link" href="intro.html"><span aria-hidden="true">&#8962;</span> Home</a>
+      <a class="status-link" href="CHSpagethree.html"><span aria-hidden="true">&#9673;</span> Current home status</a>
+      <a class="status-link" href="HLPpagefour.html"><span aria-hidden="true">&#8377;</span> Home loan & Plans</a>
+      <a class="status-link" href="cex.html"><span aria-hidden="true">&#9826;</span> Construction expert</a>
+      <a class="status-link" href="sudar-ai.html"><span aria-hidden="true">&#9889;</span> Sudar AI & Estimator</a>
+      <a class="status-link is-active" href="payments.html"><span aria-hidden="true">&#128179;</span> Payments</a>
+      <a class="status-link" href="profile.html"><span aria-hidden="true">&#9787;</span> Your profile</a>
+    </nav>
+    <a class="logout" href="login.html"><span aria-hidden="true">&#8592;</span> Sign In / Account</a>
+  </aside>
+
+  <!-- Main Payments Dashboard -->
+  <main class="payments-main">
+    <header class="payments-top-header">
+      <div class="header-titles">
+        <span class="eyebrow-badge">&#128179; Secure Razorpay Checkout Active</span>
+        <h1>Construction Milestone Payments</h1>
+        <p>Track project financing, pay upcoming stage installments, and download verified Tax Invoices.</p>
+      </div>
+      <div class="header-project-pill">
+        <span class="pulse-dot"></span> Site: <strong id="header-site-name">The Emerald Villa & Residence</strong>
+      </div>
+    </header>
+
+    <!-- Financial Metrics Grid -->
+    <section class="finance-metrics">
+      <div class="metric-card">
+        <div class="metric-icon gold-icon">&#127967;</div>
+        <div class="metric-data">
+          <span class="metric-value" id="stat-total-cost">₹47,50,000</span>
+          <span class="metric-label">Total Construction Cost</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon green-icon">&#9989;</div>
+        <div class="metric-data">
+          <span class="metric-value" id="stat-paid-amount">₹18,00,000</span>
+          <span class="metric-label">Paid to Date (37.9%)</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon cyan-icon">&#9889;</div>
+        <div class="metric-data">
+          <span class="metric-value highlight-cyan" id="stat-next-due">₹4,50,000</span>
+          <span class="metric-label">Next Installment Due</span>
+        </div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon purple-icon">&#128176;</div>
+        <div class="metric-data">
+          <span class="metric-value" id="stat-remaining-balance">₹25,00,000</span>
+          <span class="metric-label">Remaining Balance</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="payments-grid">
+
+      <!-- LEFT COLUMN: NEXT DUE INSTALLMENT & RAZORPAY GATEWAY -->
+      <div class="column-left">
+
+        <!-- Next Installment Card -->
+        <section class="card-box installment-card">
+          <div class="card-box-header">
+            <span class="due-badge">⚡ Action Required • Next Due Installment</span>
+            <h2>Stage 3: Ground Floor Slab & Column Casting</h2>
+            <p>Milestone payment due upon successful 100% column casting inspection.</p>
+          </div>
+
+          <div class="installment-details">
+            <div class="detail-row">
+              <span class="label">Installment Stage</span>
+              <span class="val">Milestone 3 of 6</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Due Date</span>
+              <span class="val highlight-red">Sep 15, 2026 (10 Days Left)</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Supervisor Sign-off</span>
+              <span class="val highlight-green">Verified by Er. Rajesh V.</span>
+            </div>
+            <div class="detail-row highlight-amount-row">
+              <span class="label">Installment Amount Due</span>
+              <span class="val-amount" id="due-amount-display">₹4,50,000</span>
+            </div>
+          </div>
+
+          <!-- Razorpay Trigger Controls -->
+          <div class="payment-actions">
+            <button type="button" id="pay-razorpay-btn" class="btn btn-razorpay">
+              <span class="razorpay-icon">R</span>
+              <span>Pay ₹4,50,000 via Razorpay</span>
+            </button>
+
+            <div class="custom-pay-option">
+              <button type="button" id="toggle-custom-pay" class="btn-text-link">Pay Partial / Custom Amount</button>
+              <div id="custom-pay-box" class="custom-pay-box hidden">
+                <input type="number" id="custom-amount-input" placeholder="Enter amount in ₹" min="1000">
+                <button type="button" id="pay-custom-btn" class="btn btn-primary-sm">Pay via Razorpay</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="razorpay-trust-footer">
+            <img src="https://razorpay.com/assets/razorpay-glyph.svg" alt="Razorpay Logo" class="rzp-logo" onerror="this.style.display='none'">
+            <span>Secured by Razorpay 256-bit SSL Encryption • UPI, Cards, NetBanking</span>
+          </div>
+        </section>
+
+        <!-- Construction Milestone Schedule -->
+        <section class="card-box milestone-schedule-card">
+          <div class="card-box-header">
+            <h3>Milestone Payment Schedule</h3>
+            <p>Structured payment release timeline aligned with civil inspection</p>
+          </div>
+
+          <div class="schedule-timeline" id="milestone-timeline">
+            <!-- Stage 1 -->
+            <div class="timeline-item completed">
+              <div class="timeline-marker">&#10003;</div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <strong>Stage 1: Booking & Architectural Design Approval</strong>
+                  <span class="status-tag tag-paid">PAID • ₹2,00,000</span>
+                </div>
+                <small>Completed on Jun 10, 2026</small>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="timeline-item completed">
+              <div class="timeline-marker">&#10003;</div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <strong>Stage 2: Foundation, Footing & Plinth Level</strong>
+                  <span class="status-tag tag-paid">PAID • ₹16,00,000</span>
+                </div>
+                <small>Completed on Aug 12, 2026</small>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="timeline-item active">
+              <div class="timeline-marker">&#9889;</div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <strong>Stage 3: Ground Floor Slab & Column Frame</strong>
+                  <span class="status-tag tag-due">DUE NOW • ₹4,50,000</span>
+                </div>
+                <small>Due Sep 15, 2026</small>
+              </div>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="timeline-item upcoming">
+              <div class="timeline-marker">4</div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <strong>Stage 4: First Floor Slab & Exterior Brickwork</strong>
+                  <span class="status-tag tag-upcoming">UPCOMING • ₹8,50,000</span>
+                </div>
+                <small>Est. Oct 2026</small>
+              </div>
+            </div>
+
+            <!-- Stage 5 -->
+            <div class="timeline-item upcoming">
+              <div class="timeline-marker">5</div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <strong>Stage 5: Electrical, Plumbing & Plastering</strong>
+                  <span class="status-tag tag-upcoming">UPCOMING • ₹6,50,000</span>
+                </div>
+                <small>Est. Nov 2026</small>
+              </div>
+            </div>
+
+            <!-- Stage 6 -->
+            <div class="timeline-item upcoming">
+              <div class="timeline-marker">6</div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <strong>Stage 6: Flooring, Painting & Key Handover</strong>
+                  <span class="status-tag tag-upcoming">UPCOMING • ₹10,00,000</span>
+                </div>
+                <small>Est. Dec 2026</small>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+
+      <!-- RIGHT COLUMN: PAYMENT HISTORY LOGS & INVOICE DOWNLOADS -->
+      <div class="column-right">
+
+        <section class="card-box history-card">
+          <div class="card-box-header header-with-filter">
+            <div>
+              <h3>Payment History Log</h3>
+              <p>Complete record of processed milestone payments & receipts</p>
+            </div>
+            <button type="button" id="export-history-btn" class="btn-sm btn-outline">Export All Receipts</button>
+          </div>
+
+          <div id="payment-alert" class="alert-banner hidden"></div>
+
+          <div class="history-table-wrapper">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Date</th>
+                  <th>Milestone Stage</th>
+                  <th>Method</th>
+                  <th>Amount</th>
+                  <th>Receipt</th>
+                </tr>
+              </thead>
+              <tbody id="payment-history-tbody">
+                <!-- Transaction 1 -->
+                <tr>
+                  <td><code class="tx-code">pay_OD894201</code></td>
+                  <td>Aug 12, 2026</td>
+                  <td>Foundation & Plinth</td>
+                  <td>Razorpay (HDFC Card)</td>
+                  <td><strong>₹10,00,000</strong></td>
+                  <td><button class="btn-sm btn-receipt" onclick="downloadReceipt('pay_OD894201', '1000000', 'Aug 12, 2026')">&#128196; PDF</button></td>
+                </tr>
+
+                <!-- Transaction 2 -->
+                <tr>
+                  <td><code class="tx-code">pay_OD741092</code></td>
+                  <td>Jul 04, 2026</td>
+                  <td>Excavation & Footing</td>
+                  <td>Razorpay (NetBanking)</td>
+                  <td><strong>₹6,00,000</strong></td>
+                  <td><button class="btn-sm btn-receipt" onclick="downloadReceipt('pay_OD741092', '600000', 'Jul 04, 2026')">&#128196; PDF</button></td>
+                </tr>
+
+                <!-- Transaction 3 -->
+                <tr>
+                  <td><code class="tx-code">pay_OD610283</code></td>
+                  <td>Jun 10, 2026</td>
+                  <td>Booking & Token Advance</td>
+                  <td>Razorpay (UPI / Google Pay)</td>
+                  <td><strong>₹2,00,000</strong></td>
+                  <td><button class="btn-sm btn-receipt" onclick="downloadReceipt('pay_OD610283', '200000', 'Jun 10, 2026')">&#128196; PDF</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Payment FAQs & Razorpay Guarantee -->
+        <section class="card-box guarantee-card">
+          <div class="guarantee-header">
+            <span class="shield-icon">&#128737;</span>
+            <div>
+              <h4>100% Escrow & Milestone Payment Protection</h4>
+              <p>Funds released to contractors only after lead engineer site verification.</p>
+            </div>
+          </div>
+          <ul class="guarantee-list">
+            <li>&#10004; Razorpay Instant Payment Receipt generated automatically with GST Invoice.</li>
+            <li>&#10004; Supports zero-cost EMI on major credit cards (HDFC, ICICI, SBI, Axis).</li>
+            <li>&#10004; Automated updates to Sudar AI financial dashboard upon payment.</li>
+          </ul>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Razorpay Payment Simulation Success Modal -->
+  <div id="payment-success-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="success-icon-wrapper">&#9989;</div>
+      <h2>Payment Successful!</h2>
+      <p class="modal-sub">Thank you! Your payment has been processed via Razorpay gateway.</p>
+
+      <div class="receipt-box">
+        <div class="receipt-row"><span>Payment ID:</span><code id="modal-pay-id">pay_OD992019</code></div>
+        <div class="receipt-row"><span>Amount Paid:</span><strong id="modal-amount">₹4,50,000</strong></div>
+        <div class="receipt-row"><span>Date & Time:</span><span id="modal-date">Sep 05, 2026 21:23</span></div>
+        <div class="receipt-row"><span>Site Status:</span><span class="highlight-green">Stage 3 Approved</span></div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="modal-close-btn" class="btn btn-primary">Continue to Dashboard</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="payments.js"></script>
+</body>
+</html>

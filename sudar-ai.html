@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sudar AI & Construction Cost Estimator | The One Dream</title>
+  <meta name="description" content="Sudar AI construction intelligence bot for daily, weekly, and monthly site reporting, paired with an interactive BHK & square foot construction cost estimator.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sudar-ai.css">
+</head>
+<body>
+  <!-- Fixed Left Navigation Sidebar -->
+  <aside class="status-bar" aria-label="Account status navigation">
+    <div class="status-watermark" aria-hidden="true">
+      <span>C</span>
+      <span>O</span>
+      <span>M</span>
+      <span>E</span>
+      <span>S</span>
+      <span>T</span>
+      <span>R</span>
+      <span>U</span>
+      <span>E</span>
+    </div>
+    <a class="profile-badge" href="profile.html">
+      <span class="profile-logo" id="sidebar-avatar-initials">SA</span>
+      <span><strong id="sidebar-user-name">Your Profile</strong><small id="sidebar-user-role">Sudar AI Connected</small></span>
+    </a>
+    <nav class="status-nav" aria-label="Your home journey">
+      <a class="status-link" href="intro.html"><span aria-hidden="true">&#8962;</span> Home</a>
+      <a class="status-link" href="CHSpagethree.html"><span aria-hidden="true">&#9673;</span> Current home status</a>
+      <a class="status-link" href="HLPpagefour.html"><span aria-hidden="true">&#8377;</span> Home loan & Plans</a>
+      <a class="status-link" href="cex.html"><span aria-hidden="true">&#9826;</span> Construction expert</a>
+      <a class="status-link is-active" href="sudar-ai.html"><span aria-hidden="true">&#9889;</span> Sudar AI & Estimator</a>
+      <a class="status-link" href="payments.html"><span aria-hidden="true">&#128179;</span> Payments</a>
+      <a class="status-link" href="profile.html"><span aria-hidden="true">&#9787;</span> Your profile</a>
+    </nav>
+    <a class="logout" href="login.html"><span aria-hidden="true">&#8592;</span> Sign In / Account</a>
+  </aside>
+
+  <!-- Main Dual Intelligence Hub -->
+  <main class="hub-main">
+    <header class="hub-top-header">
+      <div class="header-titles">
+        <span class="eyebrow-badge">&#9889; AI Construction Intelligence & Budgeting Suite</span>
+        <h1>Sudar AI Site Reports & Cost Estimator</h1>
+        <p>Generate automated site audits and calculate precision construction costs tailored to your dream home specs.</p>
+      </div>
+      <div class="header-nav-buttons">
+        <a href="#estimator-section" class="btn btn-secondary-glow">Jump to Cost Estimator &darr;</a>
+        <a href="#sudar-chat-section" class="btn btn-primary-glow">Talk to Sudar AI &uarr;</a>
+      </div>
+    </header>
+
+    <div class="hub-grid">
+
+      <!-- MODULE 1: SUDAR AI CHATBOT & PROCESS REPORT GENERATOR -->
+      <section class="hub-card chat-card" id="sudar-chat-section">
+        <div class="card-header chat-header">
+          <div class="ai-profile-info">
+            <div class="ai-avatar">
+              <span>SA</span>
+              <span class="online-indicator"></span>
+            </div>
+            <div>
+              <h2>Sudar AI <span class="version-tag">v2.4 Engine</span></h2>
+              <p class="ai-status-text">Autonomous Construction Site Process & Audit Assistant</p>
+            </div>
+          </div>
+          <div class="header-tools">
+            <button type="button" class="tool-btn" id="export-chat-btn" title="Export Chat Log">&#128190; Export Log</button>
+            <button type="button" class="tool-btn" id="clear-chat-btn" title="Reset Chat">&#128465; Clear</button>
+          </div>
+        </div>
+
+        <!-- Preset Report Action Buttons -->
+        <div class="preset-reports-bar">
+          <span class="preset-label">Instant Reports:</span>
+          <button type="button" class="preset-btn" id="preset-daily">
+            <span class="preset-icon">&#128197;</span> Daily Site Report
+          </button>
+          <button type="button" class="preset-btn" id="preset-weekly">
+            <span class="preset-icon">&#128202;</span> Weekly Audit
+          </button>
+          <button type="button" class="preset-btn" id="preset-monthly">
+            <span class="preset-icon">&#127970;</span> Monthly Progress Log
+          </button>
+        </div>
+
+        <!-- Chat Stream Window -->
+        <div class="chat-window" id="chat-window">
+          <!-- Initial Welcome Message -->
+          <div class="chat-msg msg-ai">
+            <div class="msg-avatar">SA</div>
+            <div class="msg-bubble">
+              <p><strong>Hello! I am Sudar AI</strong>, your construction intelligence partner.</p>
+              <p>I track site progress, monitor daily material logs, calculate structural stability metrics, and generate instant reports.</p>
+              <div class="msg-chips">
+                <button class="chip-btn" onclick="sendQuickPrompt('Generate today\'s daily construction report')">📋 Generate Daily Log</button>
+                <button class="chip-btn" onclick="sendQuickPrompt('What is the current cement & steel stock level on site?')">🧱 Material Stock</button>
+                <button class="chip-btn" onclick="sendQuickPrompt('Check weekly progress curve vs baseline timeline')">📈 Weekly Progress</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator hidden" id="typing-indicator">
+          <span>Sudar AI is analyzing site sensor feeds & generating report...</span>
+          <div class="dots"><span>.</span><span>.</span><span>.</span></div>
+        </div>
+
+        <!-- Chat Input Form -->
+        <form class="chat-input-form" id="chat-form">
+          <div class="chat-input-wrapper">
+            <textarea id="chat-input" placeholder="Ask Sudar AI anything about your construction site, materials, or report generation..." rows="1"></textarea>
+            <button type="submit" id="chat-submit-btn" class="chat-send-btn">
+              <span>Send</span>
+              <span class="send-icon">&#10148;</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+
+      <!-- MODULE 2: CONSTRUCTION COST ESTIMATOR -->
+      <section class="hub-card estimator-card" id="estimator-section">
+        <div class="card-header">
+          <div>
+            <h2>Construction Cost Estimator</h2>
+            <p>Select your BHK layout, area, and quality grade to get a round estimated price</p>
+          </div>
+          <span class="badge-accent">Live Calculator</span>
+        </div>
+
+        <form id="estimator-form" class="estimator-form">
+
+          <!-- BHK Selector -->
+          <div class="estimator-group">
+            <label class="group-label">1. Select BHK / Property Layout</label>
+            <div class="bhk-options">
+              <label class="bhk-card">
+                <input type="radio" name="bhk" value="1 BHK">
+                <span>1 BHK</span>
+              </label>
+              <label class="bhk-card">
+                <input type="radio" name="bhk" value="2 BHK">
+                <span>2 BHK</span>
+              </label>
+              <label class="bhk-card active">
+                <input type="radio" name="bhk" value="3 BHK" checked>
+                <span>3 BHK</span>
+              </label>
+              <label class="bhk-card">
+                <input type="radio" name="bhk" value="4 BHK">
+                <span>4 BHK</span>
+              </label>
+              <label class="bhk-card">
+                <input type="radio" name="bhk" value="Villa / 5 BHK">
+                <span>Villa / 5+ BHK</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Built-up / Land Area -->
+          <div class="estimator-group">
+            <div class="label-with-val">
+              <label for="sqft-input" class="group-label">2. Built-up / Construction Area (sq ft)</label>
+              <span class="highlight-val"><input type="number" id="sqft-input" value="2450" min="400" max="15000"> sq.ft</span>
+            </div>
+            <input type="range" id="sqft-slider" min="400" max="10000" step="50" value="2450" class="custom-slider">
+          </div>
+
+          <div class="form-row-2">
+            <!-- Number of Floors -->
+            <div class="estimator-group">
+              <label for="floors-select" class="group-label">3. Number of Floors</label>
+              <select id="floors-select">
+                <option value="1">Ground Floor Only (G)</option>
+                <option value="1.8" selected>Ground + 1 Floor (G+1 Duplex)</option>
+                <option value="2.6">Ground + 2 Floors (G+2 Triplex)</option>
+                <option value="3.4">Ground + 3 Floors (G+3 Multi-Level)</option>
+              </select>
+            </div>
+
+            <!-- Quality Standard -->
+            <div class="estimator-group">
+              <label for="quality-select" class="group-label">4. Finishing Quality Grade</label>
+              <select id="quality-select">
+                <option value="1550">Basic Standard (₹1,550/sq ft)</option>
+                <option value="1940" selected>Premium Quality (₹1,940/sq ft)</option>
+                <option value="2650">Ultra-Luxury Custom (₹2,650/sq ft)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- City / Location Tier -->
+          <div class="estimator-group">
+            <label for="location-select" class="group-label">5. Construction Location / City Tier</label>
+            <select id="location-select">
+              <option value="1.15">Metro Zone (Tier 1: Mumbai, Delhi, Bangalore, Chennai)</option>
+              <option value="1.0" selected>Urban Suburb (Tier 2: Pune, Hyderabad, Ahmedabad, Jaipur)</option>
+              <option value="0.9">Developing / Rural Zone (Tier 3)</option>
+            </select>
+          </div>
+
+          <!-- Optional Add-ons -->
+          <div class="estimator-group">
+            <label class="group-label">6. Premium Add-on Services</label>
+            <div class="addons-grid">
+              <label class="addon-checkbox">
+                <input type="checkbox" id="addon-solar" value="180000" checked>
+                <span>Solar Grid System (+₹1.8L)</span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" id="addon-smart" value="250000" checked>
+                <span>Smart Home Automation (+₹2.5L)</span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" id="addon-interiors" value="450000">
+                <span>Luxury Interior Package (+₹4.5L)</span>
+              </label>
+              <label class="addon-checkbox">
+                <input type="checkbox" id="addon-landscape" value="120000">
+                <span>Exterior Landscaping (+₹1.2L)</span>
+              </label>
+            </div>
+          </div>
+
+        </form>
+
+        <!-- LIVE RESULT BREAKDOWN PANEL -->
+        <div class="estimator-results">
+          <div class="total-price-banner">
+            <div class="total-label-box">
+              <span>Estimated Total Round Construction Cost</span>
+              <small id="calc-breakdown-sub">3 BHK • 2,450 sq.ft • Premium G+1</small>
+            </div>
+            <div class="total-price-val">
+              <h3 id="total-price-display">₹47,53,000</h3>
+              <span id="rate-sqft-display">~ ₹1,940 / sq.ft</span>
+            </div>
+          </div>
+
+          <!-- Cost Allocation Bars -->
+          <div class="cost-allocation-box">
+            <h4>Detailed Itemized Cost Breakdown</h4>
+
+            <div class="allocation-row">
+              <div class="alloc-info">
+                <span>🏗️ Civil & Foundation Structure (38%)</span>
+                <strong id="cost-civil">₹18,06,140</strong>
+              </div>
+              <div class="alloc-track"><div class="alloc-fill civil-bar" style="width: 38%;"></div></div>
+            </div>
+
+            <div class="allocation-row">
+              <div class="alloc-info">
+                <span>🎨 Finishing, Tiles & Painting (22%)</span>
+                <strong id="cost-finishing">₹10,45,660</strong>
+              </div>
+              <div class="alloc-track"><div class="alloc-fill finishing-bar" style="width: 22%;"></div></div>
+            </div>
+
+            <div class="allocation-row">
+              <div class="alloc-info">
+                <span>⚡ Plumbing & Electrical Fixtures (15%)</span>
+                <strong id="cost-plumbing">₹7,12,950</strong>
+              </div>
+              <div class="alloc-track"><div class="alloc-fill plumbing-bar" style="width: 15%;"></div></div>
+            </div>
+
+            <div class="allocation-row">
+              <div class="alloc-info">
+                <span>🚪 Carpentry, Doors & Windows (12%)</span>
+                <strong id="cost-carpentry">₹5,70,360</strong>
+              </div>
+              <div class="alloc-track"><div class="alloc-fill carpentry-bar" style="width: 12%;"></div></div>
+            </div>
+
+            <div class="allocation-row">
+              <div class="alloc-info">
+                <span>📐 Permits, Architect & Supervision (8%)</span>
+                <strong id="cost-permits">₹3,80,240</strong>
+              </div>
+              <div class="alloc-track"><div class="alloc-fill permits-bar" style="width: 8%;"></div></div>
+            </div>
+
+            <div class="allocation-row">
+              <div class="alloc-info">
+                <span>🛡️ Labor & Site Contingency Buffer (5%)</span>
+                <strong id="cost-labor">₹2,37,650</strong>
+              </div>
+              <div class="alloc-track"><div class="alloc-fill labor-bar" style="width: 5%;"></div></div>
+            </div>
+          </div>
+
+          <!-- Estimator Action Buttons -->
+          <div class="estimator-actions">
+            <button type="button" class="btn btn-primary" id="analyze-with-sudar-btn">
+              <span>&#9889; Analyze Estimate with Sudar AI</span>
+            </button>
+            <button type="button" class="btn btn-secondary" id="save-quote-btn">
+              <span>&#128190; Save Quote to Profile</span>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script src="sudar-ai.js"></script>
+</body>
+</html>
