@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Handle Sign Up Submission
-  signupForm.addEventListener('submit', (e) => {
+  signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const fullname = fullnameInput.value.trim();
@@ -147,25 +147,54 @@ document.addEventListener('DOMContentLoaded', () => {
     btnSpinner.classList.remove('hidden');
     btnText.textContent = 'Creating Your Account...';
 
-    setTimeout(() => {
-      const newUser = {
-        isLoggedIn: true,
-        name: fullname,
-        email: email,
-        phone: phone,
-        role: selectedRole,
-        projectName: `${fullname}'s Dream Residence`,
-        memberSince: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
-        loginTime: new Date().toISOString()
-      };
+    try {
+      const response = await fetch('http://localhost:5000/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          fullname,
+          phone,
+          email,
+          password,
+          role: selectedRole
+        })
+      });
 
-      localStorage.setItem('onedream_user', JSON.stringify(newUser));
+      const data = await response.json();
 
-      showAlert('Account successfully created! Redirecting to your profile...', 'success');
+      if (response.ok && data.success) {
+        const newUser = {
+          isLoggedIn: true,
+          name: fullname,
+          email: email,
+          phone: phone,
+          role: selectedRole,
+          projectName: `${fullname}'s Dream Residence`,
+          memberSince: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
+          loginTime: new Date().toISOString()
+        };
 
-      setTimeout(() => {
-        window.location.href = 'profile.html';
-      }, 1200);
-    }, 1600);
+        localStorage.setItem('onedream_user', JSON.stringify(newUser));
+
+        showAlert('Account successfully created! Redirecting to your profile...', 'success');
+
+        setTimeout(() => {
+          window.location.href = 'profile.html';
+        }, 1200);
+      } else {
+        showAlert(data.message || 'Signup failed. Please try again.', 'error');
+        submitBtn.disabled = false;
+        btnSpinner.classList.add('hidden');
+        btnText.textContent = 'Create Free Account';
+      }
+    } catch (err) {
+      console.error('Error connecting to backend:', err);
+      showAlert('Could not connect to backend server. Make sure node index.js is running on port 5000.', 'error');
+      submitBtn.disabled = false;
+      btnSpinner.classList.add('hidden');
+      btnText.textContent = 'Create Free Account';
+    }
   });
 });
